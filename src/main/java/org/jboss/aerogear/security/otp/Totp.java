@@ -13,6 +13,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *
+ *
+ * Changes by Dan Willemsen:
+ *  - Make 'clock' public
  */
 
 package org.jboss.aerogear.security.otp;
@@ -31,7 +36,7 @@ import java.security.NoSuchAlgorithmException;
 public class Totp {
 
     private final String secret;
-    private final Clock clock;
+    public final Clock clock;
     private static final int DELAY_WINDOW = 1;
 
     /**

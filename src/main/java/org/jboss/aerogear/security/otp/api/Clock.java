@@ -13,6 +13,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ *
+ *
+ * Changes by Dan Willemsen:
+ *  - Added timeRemaining()
  */
 
 package org.jboss.aerogear.security.otp.api;
@@ -38,5 +43,11 @@ public class Clock {
         calendar = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
         long currentTimeSeconds = calendar.getTimeInMillis() / 1000;
         return currentTimeSeconds / interval;
+    }
+
+    public int getTimeRemaining() {
+        calendar = GregorianCalendar.getInstance(TimeZone.getTimeZone("UTC"));
+        long currentTimeSeconds = calendar.getTimeInMillis() / 1000;
+        return interval - (int) (currentTimeSeconds % interval);
     }
 }
